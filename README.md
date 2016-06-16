@@ -12,4 +12,15 @@ require('local/index.js')
 
 这个插件就是为了支持这种不规范的写法，在不改动现有代码的情况下兼容fekit项目代码。
 
-Ok，就是这样
+## Usage
+
+已经集成到了qwebpack-convert中，如果需要单独按照的话，先定位到项目根目录
+
+npm install package-module-as-relative-plugin
+
+在webpack.config.js中
+
+var yourAliasName = require('package-module-as-relative-plugin');
+在plugins配置节点数组中加入new yourAliasName()
+
+模版地址：https://github.com/sdwangbaotong/qwebpack-convert/blob/master/templates/webpack.config.js
