@@ -20,7 +20,7 @@ relativeResolver.prototype.apply = function(resolver) {
 		// change to local relative format and check again
 		var path = './' + request.request;
 
-		return this.doResolve(['file'], {
+		return this.doResolve(['file','directory'], {
 			path: request.path,
 			request: path,
 			query: request.query
@@ -32,8 +32,8 @@ function ModuleAsRelativePlugin() {}
 
 // for the detail handle process see WebpackOptionsApply.js file under webpack/lib
 ModuleAsRelativePlugin.prototype.apply = function(compiler) {
-	compiler.plugin('after-resolvers', function(compiler) {
-		// add customer resolvers
+	// add custom resolver before any others
+	compiler.plugin('after-plugins', function(compiler) {
 		compiler.resolvers.normal.apply(new relativeResolver())
 		compiler.resolvers.context.apply(new relativeResolver())
 		compiler.resolvers.loader.apply(new relativeResolver())
