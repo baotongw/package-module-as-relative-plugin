@@ -32,8 +32,8 @@ function ModuleAsRelativePlugin() {}
 
 // for the detail handle process see WebpackOptionsApply.js file under webpack/lib
 ModuleAsRelativePlugin.prototype.apply = function(compiler) {
-	// add custom resolver before any others
-	compiler.plugin('after-plugins', function(compiler) {
+	// add custom resolver after default resolvers
+	compiler.plugin('after-resolvers', function(compiler) {
 		compiler.resolvers.normal.apply(new relativeResolver())
 		compiler.resolvers.context.apply(new relativeResolver())
 		compiler.resolvers.loader.apply(new relativeResolver())

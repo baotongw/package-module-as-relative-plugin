@@ -1,6 +1,6 @@
 {
   "name": "package-module-as-relative-plugin",
-  "version": "0.0.1",
+  "version": "0.0.3",
   "description": "support non-standard relative require mode like require('local.js') under the same folder",
   "main": "index.js",
   "scripts": {
